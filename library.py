@@ -6,12 +6,12 @@ class Book:#blueprint for creating a book for the lbrary
         self.is_available = True #idicates if the book can be borrowed
 
     def display_info(self):
-        """Return information about the book to the user."""
+        #Return information about the book to the user."""
         availability = "Available" if self._is_available else "Not Available"
         return f"Title: {self.title}, Author: {self.author}, Book id {self.book_id}, Status: {availability}"
 
     def borrow_book(self):
-        """Mark the book as borrowed if available."""
+        #Mark the book as borrowed if available."""
         if self._is_available:
             self._is_available = False
             return True
@@ -26,7 +26,7 @@ class Book:#blueprint for creating a book for the lbrary
 
 
     def return_book(self):
-        """Mark the book as available."""
+        #Mark the book as available."""
         self._is_available = True
 
 
