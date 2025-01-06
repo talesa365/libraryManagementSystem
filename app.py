@@ -8,9 +8,13 @@ library = Library() #creates an instance of library
 def index():
     books = library.get_all_books() #renders the list of books to index.html
     return render_template('index.html',books=books)#books=books allows us to access the variable
-@app.route('/add', methods=['POST'])
+@app.route('/add', methods=['GET'])
 def add():
-    title = request.form.et('title')#input form with the name of 'title
+    title = request.form.get('title')#input form with the name of 'title
+    if title:
+        return f"Book '{title}' added successfully!"
+    else:
+        return "No book title provided.", 400
     author = request.form.get('author')
     if title and author:
         library.add_books(title,author)
